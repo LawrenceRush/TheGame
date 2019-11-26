@@ -107,6 +107,7 @@ export default function sketch(p) {
         this.render = function () {
             p.push()
             p.fill(0)
+            p.image("./assets/images/detectiveSprites/male/maindetective(male).png")
             p.translate(this.pos.x, this.pos.y)
             p.rect(30, 20, 55, 55);
             p.pop()
