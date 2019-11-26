@@ -16,14 +16,15 @@ function MainCharacter(p, img) {
         this.render = function () {
             p.push()
             p.fill(0)
-            //p.rect(this.pos.x,this.pos.y, img.width, img.height)
+            p.rectMode("CENTER"); 
+            p.rect(this.pos.x,this.pos.y, img.width, img.height)
             p.image(img, this.pos.x, this.pos.y) 
             // p.pop()
             // p.push()
-            // p.stroke(0); // Change the color
-            // p.strokeWeight(10); // Make the points 10 pixels in size
-            // p.point(p.width/2, p.height/2);  
-            // p.pop()      
+            p.stroke("yellow"); // Change the color
+            p.strokeWeight(10); // Make the points 10 pixels in size
+            p.point(p.width/2, p.height/2);  
+            p.pop()      
         this.update = () => {
             if (this.rightmove) {
                 this.pos.add(this.rightVel)

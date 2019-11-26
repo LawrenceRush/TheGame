@@ -10,11 +10,11 @@ function BookShelf(p, bookShelfImg, posX, posY) {
         //p.rect(offsetX, offsetY, bookShelfImg.width, bookShelfImg.height)
         p.image(bookShelfImg, offsetX, offsetY)
     p.pop()
-    // p.push()
-    //     p.stroke('yellow');
-    //     p.strokeWeight(10);
-    //     p.point( offsetX,  offsetY)
-    //     p.pop()
+    p.push()
+        p.stroke('yellow');
+        p.strokeWeight(10);
+        p.point(  posX,  posY)
+        p.pop()
      }
 }
 
