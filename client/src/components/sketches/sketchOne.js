@@ -15,7 +15,6 @@ let bookShelf
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
     p.preload=  function () {
-        console.log("preload")
          img = p.loadImage(detectiveImg);
          bookShelf = p.loadImage(bookShelfImg)
       }
@@ -26,9 +25,9 @@ export default function sketch(p) {
     };
     //Draw (loops once per frame{I believe})
     p.draw = function () {
-        generateFloor(p, backGroundSquare)
+        generateFloor(p, backGroundSquare,)
         generateWall(p, WallBoard)
-        generateBookshelfs(p, bookShelf, p.width/2, p.height/2)
+        generateBookshelfs(p, bookShelf, detective)
         detective.render()
         detective.update()
         
@@ -37,14 +36,10 @@ export default function sketch(p) {
     //Controls (WASD)
     p.keyPressed = function () {
         if (p.keyCode == 68){
-          console.log("right")
           detective.rightmove = true;
-          console.log(detective.rightmove)
         } else if  (p.keyCode == 65){
-          console.log("left")
           detective.leftmove = true;
         } else if (p.keyCode == 87){
-          console.log('forward')
           detective.frontmove = true;
         } else if (p.keyCode == 83){
             detective.backmove = true;
@@ -56,7 +51,6 @@ export default function sketch(p) {
     //Generate Canvas
     function generateCanvas() {
         p.createCanvas(p.windowWidth * .75, p.windowHeight * .75);
-        console.log("main values",p.windowWidth * .75, p.windowHeight * .75 )
         p.stroke(0);
         p.background(160, 167, 219);
     }
