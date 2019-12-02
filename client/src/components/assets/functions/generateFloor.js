@@ -1,15 +1,16 @@
 import React from 'react'
 
-function generateFloor(p, backGroundSquare) {
+function generateFloor(p, groundTexture) {
     p.push()
-    let floorBoardYPos = p.windowHeight * .75 / 6
-        var square = new backGroundSquare(p);
+    
+      
         let r = 138
         let g = 76
         let b = 173
-
+        for(let currentX = 0; currentX<p.windowWidth*.75; currentX+=groundTexture.width){
+            let floorBoardYPos = p.windowHeight * .75 / 6
         while (floorBoardYPos < p.windowHeight * .75) {
-            square.render(0, floorBoardYPos, r, g, b)
+            p.image(groundTexture, currentX,  floorBoardYPos)
             floorBoardYPos += (p.windowHeight * .75) / 40
             if (r == 138) {
                 r = 160;
@@ -21,6 +22,7 @@ function generateFloor(p, backGroundSquare) {
                 b = 173
             }
         }
+    }
         p.pop()
     }
 

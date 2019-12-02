@@ -28,10 +28,10 @@ import knightLeftRunFive from "./../assets/images/knightImgs/runL5.png"
 import bookShelfImg from "./../assets/images/furniture/book-shelve-pixilart.png"
 import MainCharacter from "../assets/functions/MainCharacter"
 import backGroundSquare from "../assets/functions/backGroundSquare"
-import generateFloor from "../assets/functions/generateFloor"
+import genKitchenFloor from "../assets/functions/genKitchenBackground"
 import WallBoard from "../assets/functions/WallBoard";
 import generateWall from "../assets/functions/generateWall"
-import generateFurniture from "../assets/functions/generateFurniture";
+import generateKitchenFurniture from "../assets/functions/generateKitchenFurniture";
 import door from "../assets/images/furniture/AnimatedHouseDoor.png"
 import clock from "../assets/images/furniture/clock.png"
 import organ from "../assets/images/furniture/organ.png"
@@ -50,12 +50,10 @@ import mirror from '../assets/images/furniture/mirror.png'
 import largerCabinet from '../assets/images/furniture/largerCabinet.png'
 import filledBookShelf from '../assets/images/furniture/filledBookShelf.png'
 import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
-import woodFloor from '../assets/images/furniture/woodFloor.png'
 let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf]
 let detective 
 let img
 let bookShelf
-let groundTexture
 let walkDownAnimation =[]
 let idleAnimation = []
 let leftAnimation = []
@@ -66,7 +64,6 @@ let furniture = []
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
     p.preload=  function () {
-         groundTexture = p.loadImage(woodFloor)
          img = p.loadImage(detectiveImg);
          walkDownAnimation.push(p.loadImage(knightDownRunZero))
          walkDownAnimation.push(p.loadImage(knightDownRunOne))
@@ -107,10 +104,10 @@ export default function sketch(p) {
     };
     //Draw (loops once per frame{I believe})
     p.draw = function () {
-        p.background(160, 167, 219);
+        p.background(235, 232, 219);
         generateWall(p, WallBoard)
-        generateFloor(p, groundTexture)
-        generateFurniture(p, furniture, detective)
+        genKitchenFloor(p, backGroundSquare,)
+        generateKitchenFurniture(p, furniture, detective)
         detective.render()
         detective.update()
         detective.animate()

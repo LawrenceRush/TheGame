@@ -31,7 +31,7 @@ import backGroundSquare from "../assets/functions/backGroundSquare"
 import generateFloor from "../assets/functions/generateFloor"
 import WallBoard from "../assets/functions/WallBoard";
 import generateWall from "../assets/functions/generateWall"
-import generateFurniture from "../assets/functions/generateFurniture";
+import generateFurniture from "../assets/functions/genLibFurn";
 import door from "../assets/images/furniture/AnimatedHouseDoor.png"
 import clock from "../assets/images/furniture/clock.png"
 import organ from "../assets/images/furniture/organ.png"
@@ -51,7 +51,9 @@ import largerCabinet from '../assets/images/furniture/largerCabinet.png'
 import filledBookShelf from '../assets/images/furniture/filledBookShelf.png'
 import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
 import woodFloor from '../assets/images/furniture/woodFloor.png'
-let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf]
+import woodFloorL from '../assets/images/furniture/lightWood.png'
+import coffeeTable from '../assets/images/furniture/coffeeTable.png'
+let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, coffeeTable]
 let detective 
 let img
 let bookShelf
@@ -66,7 +68,7 @@ let furniture = []
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
     p.preload=  function () {
-         groundTexture = p.loadImage(woodFloor)
+         groundTexture = p.loadImage(woodFloorL )
          img = p.loadImage(detectiveImg);
          walkDownAnimation.push(p.loadImage(knightDownRunZero))
          walkDownAnimation.push(p.loadImage(knightDownRunOne))
