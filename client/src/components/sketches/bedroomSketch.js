@@ -31,7 +31,7 @@ import backGroundSquare from "../assets/functions/backGroundSquare"
 import generateFloor from "../assets/functions/generateFloor"
 import WallBoard from "../assets/functions/WallBoard";
 import generateWall from "../assets/functions/generateWall"
-import generateFurniture from "../assets/functions/generateFurniture";
+import generateFurniture from "../assets/functions/genBedFur";
 import door from "../assets/images/furniture/AnimatedHouseDoor.png"
 import clock from "../assets/images/furniture/clock.png"
 import organ from "../assets/images/furniture/organ.png"
@@ -51,6 +51,8 @@ import largerCabinet from '../assets/images/furniture/largerCabinet.png'
 import filledBookShelf from '../assets/images/furniture/filledBookShelf.png'
 import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
 import woodFloor from '../assets/images/furniture/woodFloor.png'
+
+
 let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf]
 let detective 
 let img

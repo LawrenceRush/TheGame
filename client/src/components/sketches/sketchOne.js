@@ -27,6 +27,7 @@ import knightLeftRunFour from "./../assets/images/knightImgs/runL4.png"
 import knightLeftRunFive from "./../assets/images/knightImgs/runL5.png"
 import bookShelfImg from "./../assets/images/furniture/book-shelve-pixilart.png"
 import MainCharacter from "../assets/functions/MainCharacter"
+import detectiveSpr from './../assets/images/detectiveSprites/male/detective.png'
 import backGroundSquare from "../assets/functions/backGroundSquare"
 import generateFloor from "../assets/functions/generateFloor"
 import WallBoard from "../assets/functions/WallBoard";
@@ -51,6 +52,7 @@ import largerCabinet from '../assets/images/furniture/largerCabinet.png'
 import filledBookShelf from '../assets/images/furniture/filledBookShelf.png'
 import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
 import woodFloor from '../assets/images/furniture/woodFloor.png'
+import generateCharacters from '../assets/functions/genCharacters'
 let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf]
 let detective 
 let img
@@ -62,7 +64,7 @@ let leftAnimation = []
 let rightAnimation = []
 let walkUpAnimation = []
 let furniture = []
-
+let sprites = []
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
     p.preload=  function () {
@@ -93,12 +95,14 @@ export default function sketch(p) {
          walkUpAnimation.push(p.loadImage( knightUpRunTwo))
          walkUpAnimation.push(p.loadImage( knightUpRunThree))
          walkUpAnimation.push(p.loadImage( knightUpRunFour))
+         sprites.push(p.loadImage(detectiveSpr))
         for (var i=0; i < preFurniture.length; i++){
           furniture.push(p.loadImage(preFurniture[i]))
         }
         
          bookShelf = p.loadImage(bookShelfImg)
       }
+      
     // Setup (Run before page loads)
     p.setup = function () {
         generateCanvas()
@@ -111,6 +115,7 @@ export default function sketch(p) {
         generateWall(p, WallBoard)
         generateFloor(p, groundTexture)
         generateFurniture(p, furniture, detective)
+        //generateCharacters(p, sprites, detective)
         detective.render()
         detective.update()
         detective.animate()

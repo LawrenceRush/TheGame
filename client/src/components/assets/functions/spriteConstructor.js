@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Furniture(p, img, posX, posY, width, height, collisionObj) {
+function Sprite(p, img, posX, posY, width, height, collisionObj) {
    
-    var rectDims = {posX:posX, posY:posY, width:width, height:height };
+    var rectDims = {posX:posX, posY:posY, width:img.width, height:img.height };
     this.render = function () {
     
         p.push()
@@ -27,4 +27,4 @@ function Furniture(p, img, posX, posY, width, height, collisionObj) {
      }
 }
 
-export default Furniture
+export default Sprite

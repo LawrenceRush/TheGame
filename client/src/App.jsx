@@ -11,12 +11,13 @@ import bedroom from "./components/sketches/bedroomSketch"
 
 function App() {
   const [location, setLocation] = useState({library: false, livingRoom: false, bedRoom: false, kitchen: false, bedroom: true});
+  const[modalStatus, changeModalStatus] = useState(false)
   return (
     <div>
-    {location.livingRoom && <P5Wrapper sketch={sketch} />}
+    {location.livingRoom && <P5Wrapper props={modalStatus} sketch={sketch} />}
     {location.kitchen && <P5Wrapper sketch={kitchen} />}
     {location.library && <P5Wrapper sketch={library} />}
-    {location.bedroom && <P5Wrapper sketch={library} />}
+    {location.bedroom && <P5Wrapper sketch={bedroom} />}
     </div>
   );
 }

@@ -23,9 +23,10 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
             p.fill(0)
             p.rectMode(p.CENTER);
 
-            //p.rect(this.pos.x,this.pos.y, img.width, img.height)
+            p.rect(this.pos.x,this.pos.y, walkDownAnimation[0].width, walkDownAnimation[0].height)
             p.imageMode(p.CENTER)
             
+            p.point(508.5, 363)
            
             if(this.backmove){
                 let index = p.floor(this.index) % walkDownAnimation.length
@@ -75,21 +76,27 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
             this.rightmove = false;
         }
         this.hits = (rectangle) =>{
+            console.log(rectangle)
+            p.rectMode(p.CENTER)
+            p.strokeWeight(10)
+            p.stroke("purple")
+            p.rect(rectangle.posX,rectangle.posY,rectangle.width, rectangle.height)
             if(this && rectangle){
                 
               
             if (
                
-                this.pos.x - img.width/2 < rectangle.posX+ rectangle.width/2 &&
-                this.pos.x + img.width/2 > rectangle.posX - rectangle.width/2 &&
-                this.pos.y - img.height/2 < rectangle.posY + rectangle.height/2 &&
-                this.pos.y + img.height/2 > rectangle.posY - rectangle.height/2 
+                this.pos.x - walkDownAnimation[0].width/2 < rectangle.posX+ rectangle.width/2 &&
+                this.pos.x + walkDownAnimation[0].width/2 > rectangle.posX - rectangle.width/2 &&
+                this.pos.y - walkDownAnimation[0].height/2 < rectangle.posY + rectangle.height/2 &&
+                this.pos.y + walkDownAnimation[0].height/2 > rectangle.posY - rectangle.height/2 
             
             ){
+                console.log(rectangle)
                 if (this.leftmove){
                     this.stop()
                     console.log('left')
-                    this.pos.add(this.rightVela)
+                    this.pos.add(this.rightVel)
                 }
                 if (this.rightmove){
                     this.stop()

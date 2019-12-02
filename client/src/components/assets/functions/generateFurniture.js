@@ -20,7 +20,6 @@ function generateFurniture(p, furniture, collisonObj) {
     let roundTable = new Furniture(p, furniture[9],roundTableSpecs.posX,roundTableSpecs.posY,roundTableSpecs.width,roundTableSpecs.height, collisonObj)
     let chessBoard = new Furniture(p, furniture[8],chessBoardSpecs.posX,chessBoardSpecs.posY,chessBoardSpecs.width,chessBoardSpecs.height, collisonObj)
 
-    console.log(furniture)
     door.render()
     clock.render()
     booksShelfOne.render()

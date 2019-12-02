@@ -53,6 +53,8 @@ import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
 import woodFloor from '../assets/images/furniture/woodFloor.png'
 import woodFloorL from '../assets/images/furniture/lightWood.png'
 import coffeeTable from '../assets/images/furniture/coffeeTable.png'
+import detectiveSpr from '../assets/images/detectiveSprites/male/detective.png'
+import generateCharacters from '../assets/functions/genCharacters'
 let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, coffeeTable]
 let detective 
 let img
@@ -64,6 +66,7 @@ let leftAnimation = []
 let rightAnimation = []
 let walkUpAnimation = []
 let furniture = []
+let sprites =[]
 
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
@@ -101,6 +104,7 @@ export default function sketch(p) {
         
          bookShelf = p.loadImage(bookShelfImg)
       }
+      sprites.push(p.loadImage(detectiveSpr))
     // Setup (Run before page loads)
     p.setup = function () {
         generateCanvas()
@@ -113,6 +117,7 @@ export default function sketch(p) {
         generateWall(p, WallBoard)
         generateFloor(p, groundTexture)
         generateFurniture(p, furniture, detective)
+        generateCharacters(p, sprites, detective)
         detective.render()
         detective.update()
         detective.animate()
