@@ -10,7 +10,7 @@ import bedroom from "./components/sketches/bedroomSketch"
 
 
 function App() {
-  const [location, setLocation] = useState({library: false, livingRoom: false, bedRoom: false, kitchen: false, bedroom: true});
+  const [location, setLocation] = useState({library: false, livingRoom: true, bedroom: false, kitchen: false});
   return (
     <div>
     {location.livingRoom && <P5Wrapper sketch={sketch} />}
