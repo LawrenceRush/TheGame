@@ -132,7 +132,10 @@ export default function sketch(p) {
         }
       }
     p.keyReleased = function() {
+      if(detective){
+      console.log(detective)
         detective.stop()
+      }
     }
     //Generate Canvas
     function generateCanvas() {

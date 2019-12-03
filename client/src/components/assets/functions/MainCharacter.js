@@ -1,6 +1,6 @@
 
 
-function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, rightAnimation, walkUpAnimation) {
+function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, rightAnimation, walkUpAnimation, changeModalContent, setLocation) {
     this.movemontKey = 0
     p.push()
         this.pos = p.createVector(p.width/2, p.height/1.1)
@@ -13,7 +13,7 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
         this.frontmove = false;
         this.leftmove = false;
         this.rightmove = false;
-       
+       this.spaceKey = false
 
         this.index = 0;
         this.speed = .07;
@@ -23,7 +23,7 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
             p.fill(0)
             p.rectMode(p.CENTER);
 
-            p.rect(this.pos.x,this.pos.y, walkDownAnimation[0].width, walkDownAnimation[0].height)
+           // p.rect(this.pos.x,this.pos.y, walkDownAnimation[0].width, walkDownAnimation[0].height)
             p.imageMode(p.CENTER)
             
             p.point(508.5, 363)
@@ -74,13 +74,12 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
             this.frontmove = false;
             this.leftmove = false;
             this.rightmove = false;
+            this.spaceKey = false
         }
         this.hits = (rectangle) =>{
-            console.log(rectangle)
+            
             p.rectMode(p.CENTER)
-            p.strokeWeight(10)
-            p.stroke("purple")
-            p.rect(rectangle.posX,rectangle.posY,rectangle.width, rectangle.height)
+          
             if(this && rectangle){
                 
               
@@ -92,25 +91,24 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
                 this.pos.y + walkDownAnimation[0].height/2 > rectangle.posY - rectangle.height/2 
             
             ){
-                console.log(rectangle)
                 if (this.leftmove){
                     this.stop()
-                    console.log('left')
+                    
                     this.pos.add(this.rightVel)
                 }
                 if (this.rightmove){
                     this.stop()
-                    console.log('right')
+                   
                     this.pos.add(this.leftVel)
                 }
                 if (this.backmove){
                     this.stop()
-                    console.log('right')
+                    
                     this.pos.add(this.forwardVel)
                 }
                 if (this.frontmove){
                     this.stop()
-                    console.log('right')
+                   
                     this.pos.add(this.backVel)
                 }
                
@@ -119,7 +117,42 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
             
         }
         }
+        this.canInteract = (rectangle, name) => {
+        
+            p.rectMode(p.CENTER)
+            
+            if(this && rectangle){
+                
+              
+            if (
+               
+                this.pos.x - walkDownAnimation[0].width/2 < rectangle.posX+ rectangle.width/1.7 &&
+                this.pos.x + walkDownAnimation[0].width/2 > rectangle.posX - rectangle.width/1.7 &&
+                this.pos.y - walkDownAnimation[0].height/2 < rectangle.posY + rectangle.height/1.7 &&
+                this.pos.y + walkDownAnimation[0].height/2 > rectangle.posY - rectangle.height/1.7 
+                && this.spaceKey === true
+            ){
+                console.log(name)
+              if(name === 'door' ){
+                setLocation({library: false, livingRoom: false, kitchen: false, bedroom: true})
+              } else if(name==='stairs'){
+                setLocation({library: true, livingRoom: false, kitchen: false, bedroom: false})
+              }else if(name==='blueStairs'){
+               setLocation({library: false, livingRoom: false, kitchen: true, bedroom: false})
+               console.log('i think its working')
+              }else{
+                // console.log(name)
+                // changeModalContent(name)
+                console.log('nothing')
+              }
+              
+               
+               }
+            
+        }
+        }
     }
-}
+    }
+
 
 export default MainCharacter

@@ -15,14 +15,14 @@ function generateFurniture(p, furniture, collisonObj) {
     let sideWaysCabinet = new Furniture(p, furniture[4], cabinetSpecs.posX, cabinetSpecs.posY, cabinetSpecs.width, cabinetSpecs.height, collisonObj)
     let bed = new Furniture(p, furniture[11], bedSpecs.posX, bedSpecs.posY, bedSpecs.width, bedSpecs.height, collisonObj)
     let mirror =  new Furniture(p, furniture[15], mirrorSpecs.posX, mirrorSpecs.posY, mirrorSpecs.width, mirrorSpecs.height, collisonObj)
-    //sideWaysCabinet.render()
+    sideWaysCabinet.render()
     bed.render()
-    //mirror.render()
-    // p.line(p.width/2.7, p.height/20, p.width/2.7, p.height/2.3);
-    // p.line(p.width/1.7, p.height/20, p.width/1.7, p.height/2.3);
-    // p.line(p.width/1.7, p.height/20, p.width/2.7, p.height/20);
-    // p.line(p.width/2.7, p.height/2.3,p.width/1.7, p.height/2.3);
-   // console.log(furniture)
+    mirror.render()
+    p.line(p.width/2.7, p.height/20, p.width/2.7, p.height/2.3);
+    p.line(p.width/1.7, p.height/20, p.width/1.7, p.height/2.3);
+    p.line(p.width/1.7, p.height/20, p.width/2.7, p.height/20);
+    p.line(p.width/2.7, p.height/2.3,p.width/1.7, p.height/2.3);
+   
     
 }
 
