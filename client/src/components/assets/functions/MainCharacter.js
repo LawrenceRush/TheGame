@@ -141,9 +141,9 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
                setLocation({library: false, livingRoom: false, kitchen: true, bedroom: false})
                console.log('i think its working')
               }else{
-                // console.log(name)
-                // changeModalContent(name)
-                console.log('nothing')
+                console.log(name)
+                changeModalContent(name)
+                
               }
               
                
