@@ -5,6 +5,5 @@ const gameController = require("../../controllers/gameController");
 router.route("/")
   .get(gameController.findAll);
 
-// Matches with "/api/books/:id"
 
 module.exports = router;

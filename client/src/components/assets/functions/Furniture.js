@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Furniture(p, img, posX, posY, width, height, collisionObj, furnitureName) {
-   
+ 
     var rectDims = {posX:posX, posY:posY, width:width, height:height };
     this.render = function () {
     
@@ -9,9 +9,10 @@ function Furniture(p, img, posX, posY, width, height, collisionObj, furnitureNam
         
         p.fill(0)
         p.rectMode(p.CENTER)
-        //p.rect(posX, posY, width, height)
+        p.rect(posX, posY, width, height)
         
         if(collisionObj.hits){
+            
             collisionObj.canInteract(rectDims, furnitureName)
             collisionObj.hits(rectDims)
             

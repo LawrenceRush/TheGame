@@ -132,6 +132,7 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
                 this.pos.y + walkDownAnimation[0].height/2 > rectangle.posY - rectangle.height/1.7 
                 && this.spaceKey === true
             ){
+                console.log('interact')
                 console.log(name)
               if(name === 'door' ){
                 setLocation({library: false, livingRoom: false, kitchen: false, bedroom: true})
@@ -140,9 +141,25 @@ function MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, 
               }else if(name==='blueStairs'){
                setLocation({library: false, livingRoom: false, kitchen: true, bedroom: false})
                console.log('i think its working')
-              }else{
+              }else if(name==='purpleRug'){
+                setLocation({library: false, livingRoom: true, kitchen: false, bedroom: false})
+                console.log('i think its working')
+               }
+               else if(name==='pinkRug'){
+                setLocation({library: false, livingRoom: true, kitchen: false, bedroom: false})
+                console.log('i think its working')
+               }
+               else if(name==='greenRug'){
+                setLocation({library: false, livingRoom: true, kitchen: false, bedroom: false})
+                console.log('i think its working')
+               }
+               
+              else{
                 console.log(name)
-                changeModalContent(name)
+                if(changeModalContent){
+                    changeModalContent(name)
+
+                }
                 
               }
               

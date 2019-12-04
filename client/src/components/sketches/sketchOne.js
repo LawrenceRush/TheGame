@@ -55,9 +55,12 @@ import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
 import woodFloor from '../assets/images/furniture/woodFloor.png'
 import generateCharacters from '../assets/functions/genCharacters'
 import blueStairs from '../assets/images/furniture/blueStairs.png'
-let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, blueStairs]
-let furnitureNames = ['bookShelfImg', 'door', 'clock', 'organ', ' sideWaysCabinet', ' sideWaysCabinetTwo', 'stairs', 'window', 'chessBoard', 'roundTable', 'longTable', 'bed', 'kitchenCounter', 'dresser', 'dresser2', 'mirror', 'largerCabinet', 'filledBookShelf', 'halfFullBookShelf', 'blueStairs']
-
+import coffeeTable from '../assets/images/furniture/coffeeTable.png'
+import purpleRug from '../assets/images/furniture/purpleRug.png'
+import greenRug from '../assets/images/furniture/greenRug.png'
+import pinkRug from '../assets/images/furniture/pinkRug.png'
+let furnitureNames = ['bookShelfImg', 'door', 'clock', 'organ', ' sideWaysCabinet', ' sideWaysCabinetTwo', 'stairs', 'window', 'chessBoard', 'roundTable', 'longTable', 'bed', 'kitchenCounter', 'dresser', 'dresser2', 'mirror', 'largerCabinet', 'filledBookShelf', 'halfFullBookShelf', 'coffeeTable', 'blueStairs', 'purpleRug', 'greenRug', 'pinkRug']
+  let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, coffeeTable, blueStairs, purpleRug, greenRug, pinkRug]
 let detective 
 let img
 let bookShelf
@@ -71,6 +74,7 @@ let furniture = []
 let sprites = []
 let changeModalContent
 let setLocation
+let detectiveLoaded = false
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
    
@@ -122,7 +126,7 @@ export default function sketch(p) {
     p.setup = function () {
         generateCanvas()
         detective = new MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, rightAnimation, walkUpAnimation, changeModalContent, setLocation )
-    
+      detectiveLoaded = true
       };
     //HandleProps
 
@@ -155,7 +159,10 @@ export default function sketch(p) {
         }
       }
     p.keyReleased = function() {
+      if(detectiveLoaded){
         detective.stop()
+      }
+        
     }
     //Generate Canvas
     function generateCanvas() {

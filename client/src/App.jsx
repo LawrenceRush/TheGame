@@ -14,7 +14,7 @@ import API from "./utils/API";
 
 
 function App() {
-  const [books, setBooks] = useState([])
+  const [title, setTitle] = useState([])
   const [location, setLocation] = useState({library: false, livingRoom: true, bedroom: false, kitchen: false});
   const[modalStatus, changeModalStatus] = useState(true)
   const [modalContent, changeModalContent] = useState(dialogue.baseState)
@@ -24,28 +24,30 @@ function App() {
   }
 
   const changeModalContentHandler = (name) =>{
-    console.log("attempt to change",dialogue[name].line1)
+    if(dialogue[name]){
+    console.log("attempt to change", dialogue[name].line1)
     changeModalContent(dialogue[name].line1)
+    }
   }
 
 
   useEffect(() => {
     API.getTitle()
       .then(res => 
-        setBooks(res.data)
+        setTitle(res.data[0].title)
       )
       .catch(err => console.log(err));
-      console.log(books)
-}, [books]);
+     
+}, []);
 
   return (
    
     <div>
       
     {location.livingRoom && <P5Wrapper  sketch={sketch} props={[modalStatus,changeModalContentHandler, setLocation]} />}
-    {location.kitchen && <P5Wrapper sketch={kitchen} />}
-    {location.library && <P5Wrapper sketch={library} />}
-    {location.bedroom && <P5Wrapper sketch={bedroom} />}
+    {location.kitchen && <P5Wrapper sketch={kitchen} props={[modalStatus,changeModalContentHandler, setLocation]} />}
+    {location.library && <P5Wrapper sketch={library} props={[modalStatus,changeModalContentHandler, setLocation]} />}
+    {location.bedroom && <P5Wrapper sketch={bedroom} props={[modalStatus,changeModalContentHandler, setLocation]}/>}
     {modalStatus && <Modal props ={modalContent}/>}
     </div>
   );

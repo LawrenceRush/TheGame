@@ -7,8 +7,7 @@ function generateKitchenFloor(p) {
     let r = 40
     let g = 133
     let b = 209
-    console.log((p.windowHeight * .75) / 40)
-    console.log(floorHeightArea)
+    
     for(let currentX = 0; currentX<p.windowWidth*.75; currentX+=p.windowWidth * .75/45){
         let floorBoardYPos = p.windowHeight * .75 / 6
         while (floorBoardYPos < p.windowHeight * .75) {

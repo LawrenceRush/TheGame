@@ -7,7 +7,7 @@ function generateFurniture(p, furniture, collisonObj, furnitureNames) {
     let posX = p.width/1.06
     let posY =  p.height/2
     let doorSpecs = {posX: p.width/2, posY:p.height/9.5, width: p.width/20, height:p.height/8 }
-    let clockSpecs = {posX: p.width/1.1, posY:p.height/8.5, width: p.width/20, height:p.height/6 }
+    let clockSpecs = {posX: p.width/1.4, posY:p.height/8.5, width: p.width/20, height:p.height/6 }
     let organSpecs = {posX: p.width/4.5, posY:p.height/8.5, width: p.width/7, height:p.height/5 }
     let cabinetSpecs = {posX: p.width/42, posY:p.height/1.7, width: p.width/20, height:p.height/5 }
     let roundTableSpecs = {posX: p.width/2, posY:p.height/2, width: p.width/12, height:p.height/7 }
@@ -21,7 +21,7 @@ function generateFurniture(p, furniture, collisonObj, furnitureNames) {
     let sideWaysCabinet = new Furniture(p, furniture[4], cabinetSpecs.posX, cabinetSpecs.posY, cabinetSpecs.width, cabinetSpecs.height, collisonObj, furnitureNames[4])
     let roundTable = new Furniture(p, furniture[9],roundTableSpecs.posX,roundTableSpecs.posY,roundTableSpecs.width,roundTableSpecs.height, collisonObj, furnitureNames[9])
     let chessBoard = new Furniture(p, furniture[8],chessBoardSpecs.posX,chessBoardSpecs.posY,chessBoardSpecs.width,chessBoardSpecs.height, collisonObj, furnitureNames[8])
-    let blueStairs = new Furniture(p, furniture[19],blueStairsSpecs.posX,blueStairsSpecs.posY,blueStairsSpecs.width,blueStairsSpecs.height, collisonObj, furnitureNames[19])
+    let blueStairs = new Furniture(p, furniture[20],blueStairsSpecs.posX,blueStairsSpecs.posY,blueStairsSpecs.width,blueStairsSpecs.height, collisonObj, furnitureNames[20])
     let stairs =  new Furniture(p, furniture[6],stairsSpecs.posX,stairsSpecs.posY,stairsSpecs.width,stairsSpecs.height, collisonObj, furnitureNames[6])
     door.render()
     clock.render()

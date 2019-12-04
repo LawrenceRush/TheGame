@@ -50,7 +50,13 @@ import mirror from '../assets/images/furniture/mirror.png'
 import largerCabinet from '../assets/images/furniture/largerCabinet.png'
 import filledBookShelf from '../assets/images/furniture/filledBookShelf.png'
 import halfFullBookShelf from '../assets/images/furniture/halfFullBookShelf.png'
-let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf]
+import purpleRug from '../assets/images/furniture/purpleRug.png'
+import greenRug from '../assets/images/furniture/greenRug.png'
+import pinkRug from '../assets/images/furniture/pinkRug.png'
+import coffeeTable from '../assets/images/furniture/coffeeTable.png'
+import blueStairs from '../assets/images/furniture/blueStairs.png'
+let furnitureNames = ['bookShelfImg', 'door', 'clock', 'organ', ' sideWaysCabinet', ' sideWaysCabinetTwo', 'stairs', 'window', 'chessBoard', 'roundTable', 'longTable', 'bed', 'kitchenCounter', 'dresser', 'dresser2', 'mirror', 'largerCabinet', 'filledBookShelf', 'halfFullBookShelf', 'coffeeTable', 'blueStairs', 'purpleRug', 'greenRug', 'pinkRug']
+let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, coffeeTable, blueStairs, purpleRug, greenRug, pinkRug]
 let detective 
 let img
 let bookShelf
@@ -60,7 +66,9 @@ let leftAnimation = []
 let rightAnimation = []
 let walkUpAnimation = []
 let furniture = []
-
+let setLocation
+let changeModalContent
+let detectiveLoaded = false
 export default function sketch(p) {
     //Pre Load (Import big things before page loads)
     p.preload=  function () {
@@ -96,18 +104,26 @@ export default function sketch(p) {
         
          bookShelf = p.loadImage(bookShelfImg)
       }
+
+      p.myCustomRedrawAccordingToNewPropsHandler = function(newProps){
+        if(newProps){
+          
+          changeModalContent= newProps.props[1]
+          setLocation= newProps.props[2]
+        }
+    }
     // Setup (Run before page loads)
     p.setup = function () {
         generateCanvas()
-        detective = new MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, rightAnimation, walkUpAnimation)
-      
+        detective = new MainCharacter(p, img, walkDownAnimation, idleAnimation, leftAnimation, rightAnimation, walkUpAnimation, changeModalContent, setLocation)
+        detectiveLoaded = true
     };
     //Draw (loops once per frame{I believe})
     p.draw = function () {
         p.background(235, 232, 219);
         generateWall(p, WallBoard)
         genKitchenFloor(p, backGroundSquare,)
-        generateKitchenFurniture(p, furniture, detective)
+        generateKitchenFurniture(p, furniture, detective, furnitureNames)
         detective.render()
         detective.update()
         detective.animate()
@@ -124,10 +140,14 @@ export default function sketch(p) {
           detective.frontmove = true;
         } else if (p.keyCode == 83){
             detective.backmove = true;
+        } else if (p.keyCode == 32){
+          detective.spaceKey = true
         }
       }
     p.keyReleased = function() {
+      if(detectiveLoaded){
         detective.stop()
+      }
     }
     //Generate Canvas
     function generateCanvas() {
