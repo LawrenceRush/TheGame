@@ -19,4 +19,18 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 10px
+}
+
+.Nav{
+    text-align: center;
+}
+
+.title{
+    color:white;
+    font-size: 2em;
+    margin: 0 auto;
+}
+.modal{
+    background-color: red !important
 }

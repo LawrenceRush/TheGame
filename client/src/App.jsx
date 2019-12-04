@@ -11,6 +11,7 @@ import Modal from './components/model'
 import dialogue from './components/dialouge'
 import API from "./utils/API";
 import "./index.css"
+import AppBar from "./components/AppBar"
 
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
 }, []);
 
   return (
-   
+    <div>
+   <AppBar props={title}/>
     <div className = "body">
       <div className = 'container'>
     {location.livingRoom && <P5Wrapper  className = "sketchDiv"sketch={sketch} props={[modalStatus,changeModalContentHandler, setLocation]} />}
@@ -51,6 +53,7 @@ function App() {
    
     </div>
     {modalStatus && <Modal props ={modalContent}/>}
+    </div>
     </div>
   );
 }

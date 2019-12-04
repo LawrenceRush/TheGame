@@ -21,10 +21,10 @@ function generateFurniture(p, furniture, collisonObj, furnitureNames) {
     bed.render()
     mirror.render()
     greenRug.render()
-    p.line(p.width/2.7, p.height/20, p.width/2.7, p.height/2.3);
-    p.line(p.width/1.7, p.height/20, p.width/1.7, p.height/2.3);
-    p.line(p.width/1.7, p.height/20, p.width/2.7, p.height/20);
-    p.line(p.width/2.7, p.height/2.3,p.width/1.7, p.height/2.3);
+    // p.line(p.width/2.7, p.height/20, p.width/2.7, p.height/2.3);
+    // p.line(p.width/1.7, p.height/20, p.width/1.7, p.height/2.3);
+    // p.line(p.width/1.7, p.height/20, p.width/2.7, p.height/20);
+    // p.line(p.width/2.7, p.height/2.3,p.width/1.7, p.height/2.3);
    
     
 }
