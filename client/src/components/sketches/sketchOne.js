@@ -1,6 +1,6 @@
 import { func } from "prop-types";
 import react from 'react'
-import detectiveImg from "./../assets/images/detectiveSprites/male/detective(male)left-pixilart.png"
+import detectiveImg from "./../assets/images/detectiveSprites/male/detective.png"
 import knightIdeZero from "./../assets/images/knightImgs/idle0.png"
 import knightIdeOne from "./../assets/images/knightImgs/idle1.png"
 import knightIdeTwo from "./../assets/images/knightImgs/idle2.png"
@@ -61,7 +61,8 @@ import greenRug from '../assets/images/furniture/greenRug.png'
 import pinkRug from '../assets/images/furniture/pinkRug.png'
 let furnitureNames = ['bookShelfImg', 'door', 'clock', 'organ', ' sideWaysCabinet', ' sideWaysCabinetTwo', 'stairs', 'window', 'chessBoard', 'roundTable', 'longTable', 'bed', 'kitchenCounter', 'dresser', 'dresser2', 'mirror', 'largerCabinet', 'filledBookShelf', 'halfFullBookShelf', 'coffeeTable', 'blueStairs', 'purpleRug', 'greenRug', 'pinkRug']
   let preFurniture = [bookShelfImg, door, clock, organ,  sideWaysCabinet,  sideWaysCabinetTwo, stairs, window, chessBoard, roundTable, longTable, bed, kitchenCounter, dresser, dresser2, mirror, largerCabinet, filledBookShelf, halfFullBookShelf, coffeeTable, blueStairs, purpleRug, greenRug, pinkRug]
-let detective 
+let spriteNames = ['detective']
+  let detective 
 let img
 let bookShelf
 let groundTexture
@@ -136,7 +137,7 @@ export default function sketch(p) {
         generateWall(p, WallBoard)
         generateFloor(p, groundTexture)
         generateFurniture(p, furniture, detective, furnitureNames)
-        generateCharacters(p, sprites, detective)
+        generateCharacters(p, sprites, detective, spriteNames)
         detective.render()
         detective.update()
         detective.animate()

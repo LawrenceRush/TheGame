@@ -19,18 +19,53 @@ function App() {
   const [location, setLocation] = useState({library: false, livingRoom: true, bedroom: false, kitchen: false});
   const[modalStatus, changeModalStatus] = useState(true)
   const [modalContent, changeModalContent] = useState(dialogue.baseState)
-
-  if(dialogue){
-   
-  }
+  const [modalResponses, changeModalResponses] = useState([])
+  const [interactionName, changeInteractionName] = useState('')
+  
 
   const changeModalContentHandler = (name) =>{
     if(dialogue[name]){
-    console.log("attempt to change", dialogue[name].line1)
-    changeModalContent(dialogue[name].line1)
+      changeInteractionName(name)
+    console.log("attempt to change", dialogue[name].line)
+    changeModalContent(dialogue[name].line1.line)
+      let responses = []
+      if(dialogue[name].line1.response1){
+        responses.push(dialogue[name].line1.response1)
+      }
+      if(dialogue[name].line1.response2){
+        responses.push(dialogue[name].line1.response2)
+      }
+      if(dialogue[name].line1.response3){
+        responses.push(dialogue[name].line1.response3)
+      }
+      if(dialogue[name].line1.response4){
+        responses.push(dialogue[name].line1.response4)
+      }
+      changeModalResponses(responses)
     }
   }
-
+  
+const advanceDiaglouge = () => {
+let name = interactionName;
+if(dialogue[name].line1.line == modalContent){
+  changeModalContent(dialogue[name].line2.line)
+  console.log(dialogue[name])
+  let responses = []
+  if(dialogue[name].line2.response1){
+    responses.push(dialogue[name].line2.response1)
+  }
+  if(dialogue[name].line2.response2){
+    responses.push(dialogue[name].line2.response2)
+  }
+  if(dialogue[name].line2.response3){
+    responses.push(dialogue[name].line2.response3)
+  }
+  if(dialogue[name].line2.response4){
+    responses.push(dialogue[name].line2.response4)
+  }
+ changeModalResponses(responses)
+}
+}
 
   useEffect(() => {
     API.getTitle()
@@ -52,7 +87,7 @@ function App() {
     {location.bedroom && <P5Wrapper sketch={bedroom} props={[modalStatus,changeModalContentHandler, setLocation]}/>}
    
     </div>
-    {modalStatus && <Modal props ={modalContent}/>}
+    {modalStatus && <Modal props ={[modalContent, modalResponses, advanceDiaglouge]}/>}
     </div>
     </div>
   );
