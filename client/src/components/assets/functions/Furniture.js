@@ -1,0 +1,32 @@
+import React from 'react'
+
+function Furniture(p, img, posX, posY, width, height, collisionObj, furnitureName) {
+   
+    var rectDims = {posX:posX, posY:posY, width:width, height:height };
+    this.render = function () {
+    
+        p.push()
+        
+        p.fill(0)
+        p.rectMode(p.CENTER)
+        //p.rect(posX, posY, width, height)
+        
+        if(collisionObj.hits){
+            collisionObj.canInteract(rectDims, furnitureName)
+            collisionObj.hits(rectDims)
+            
+        }
+        //collsionObj.hits(rect)
+        p.imageMode(p.CENTER)
+        p.image(img, posX, posY, width, height )
+        p.pop()
+    
+    // p.push()
+    //     p.stroke('yellow');
+    //     p.strokeWeight(10);
+    //     p.point( offsetX,  offsetY)
+    //     p.pop()
+     }
+}
+
+export default Furniture
