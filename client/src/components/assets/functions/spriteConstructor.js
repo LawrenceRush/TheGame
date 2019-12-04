@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Sprite(p, img, posX, posY, width, height, collisionObj) {
+function Sprite(p, img, posX, posY, width, height, collisionObj, spriteName) {
    
     var rectDims = {posX:posX, posY:posY, width:img.width, height:img.height };
     this.render = function () {
@@ -12,7 +12,10 @@ function Sprite(p, img, posX, posY, width, height, collisionObj) {
         //p.rect(posX, posY, width, height)
         
         if(collisionObj.hits){
+            
+            collisionObj.canInteract(rectDims, spriteName)
             collisionObj.hits(rectDims)
+            
         }
         //collsionObj.hits(rect)
         p.imageMode(p.CENTER)

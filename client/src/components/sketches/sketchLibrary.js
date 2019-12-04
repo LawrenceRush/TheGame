@@ -132,7 +132,7 @@ export default function sketch(p) {
         generateWall(p, WallBoard)
         generateFloor(p, groundTexture)
         generateFurniture(p, furniture, detective, furnitureNames)
-        generateCharacters(p, sprites, detective)
+       // generateCharacters(p, sprites, detective)
         detective.render()
         detective.update()
         detective.animate()

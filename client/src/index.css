@@ -34,3 +34,10 @@
 .modal{
     background-color: red !important
 }
+.responses{
+    text-align: left;
+    width: 100%
+}
+.oneHundred{
+    width: 100%
+}
