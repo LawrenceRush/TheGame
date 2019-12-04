@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from './components/model'
 import dialogue from './components/dialouge'
 import API from "./utils/API";
-
+import "./index.css"
 
 
 function App() {
@@ -42,12 +42,14 @@ function App() {
 
   return (
    
-    <div>
-      
-    {location.livingRoom && <P5Wrapper  sketch={sketch} props={[modalStatus,changeModalContentHandler, setLocation]} />}
+    <div className = "body">
+      <div className = 'container'>
+    {location.livingRoom && <P5Wrapper  className = "sketchDiv"sketch={sketch} props={[modalStatus,changeModalContentHandler, setLocation]} />}
     {location.kitchen && <P5Wrapper sketch={kitchen} props={[modalStatus,changeModalContentHandler, setLocation]} />}
     {location.library && <P5Wrapper sketch={library} props={[modalStatus,changeModalContentHandler, setLocation]} />}
     {location.bedroom && <P5Wrapper sketch={bedroom} props={[modalStatus,changeModalContentHandler, setLocation]}/>}
+   
+    </div>
     {modalStatus && <Modal props ={modalContent}/>}
     </div>
   );
