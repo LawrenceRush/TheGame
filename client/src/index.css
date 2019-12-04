@@ -1,0 +1,43 @@
+.body{
+    background-image: linear-gradient(#1A4446, #322525);
+    height: 100vh
+}
+
+.container{
+    
+   
+    display: flex;
+  
+    /* This centers our sketch horizontally. */
+    justify-content: center;
+  
+    /* This centers our sketch vertically. */
+    align-items: center;
+}
+
+.p5Canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px
+}
+
+.Nav{
+    text-align: center;
+}
+
+.title{
+    color:white;
+    font-size: 2em;
+    margin: 0 auto;
+}
+.modal{
+    background-color: red !important
+}
+.responses{
+    text-align: left;
+    width: 100%
+}
+.oneHundred{
+    width: 100%
+}
