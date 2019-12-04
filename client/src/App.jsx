@@ -30,7 +30,7 @@ function App() {
 
 
   useEffect(() => {
-    API.getBooks()
+    API.getTitle()
       .then(res => 
         setBooks(res.data)
       )
